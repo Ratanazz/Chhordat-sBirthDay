@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy BirthDay</title>
+</head>
+<body>
+   <div id="contents1" >
+       <div class="flex items-center justify-center h-screen bg-pink-100">
+           <div class="text-center ">
+               <h1 class="text-4xl py-4 font-extrabold animate__animated animate__pulse animate__infinite">
+                   Happy BirthDay Chhorda!
+               </h1>
+               <img src="./chorda.jpg" class="w-48 h-48 mx-auto rounded-sm">
+               <div class="text-2xl font-semibold p-4 rounded max-w-md w-full mx-auto">
+       
+                    <p>Wishing you all the best on your special day!</p>
+                    
+               </div>
+               <button id="goToNewConten" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded transition">Next</button>
+               <div class="flex py-4">
+                   <img src="./meow1.jpg" class="w-24 h-24 mx-auto rounded-sm">
+                   <img src="./meow2.jpg" class="w-24 h-24 mx-auto rounded-sm ">
+                   <img src="./meow3.jpg" class="w-24 h-24 mx-auto rounded-sm">
+                   
+               </div>
+           </div>
+           
+       </div>
+       
+   </div>
+
+   <div id="contents2" style="display: none;">
+       <div class="flex items-center justify-center h-screen bg-pink-100">
+           <div class="text-center ">
+            <h1 class="text-3xl py-4 font-extrabold animate__animated animate__pulse animate__infinite">
+                   CONGRATULATIONS!
+               </h1>
+               <img src="https://media1.tenor.com/m/cMOyAwxPyNEAAAAd/cats-dancing-cats-holding-hands.gif" class="w-48 h-48 mx-auto rounded-md">
+               <div class="text-2xl font-semibold p-4 rounded max-w-md w-full mx-auto">
+       
+                    <p>We have been friends for:</p>
+                    <p id="countdown1" class="mt-2 text-600 text-3xl font-bold"></p>
+               </div>
+               <div class="flex py-4">
+                   <img src="https://media.tenor.com/kvmY6UnA5vIAAAAi/gatito.gif" class="w-24 h-24 mx-auto rounded-sm">
+                   <img src="https://media.tenor.com/vX-qFMkapQQAAAAi/cat-dancing.gif" class="w-24 h-24 mx-auto rounded-sm ">
+                   <img src="https://media.tenor.com/-SDcTtx8slgAAAAj/cat-dance.gif" class="w-24 h-24 mx-auto rounded-sm">
+               </div>
+               
+           </div>
+           
+       </div>
+       
+   </div>
+   <script>
+  const startDate = new Date("2025-05-11T00:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = now - startDate;
+
+    if (diff < 0) {
+      document.getElementById("countdown1").innerText = "It's not May yet!";
+      
+      return;
+    }
+
+    const seconds = Math.floor(diff / 1000) % 60;
+    const minutes = Math.floor(diff / (1000 * 60)) % 60;
+    const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const text = `${days}day - ${hours}hour - ${minutes}minute - ${seconds}second`;
+
+    document.getElementById('countdown1').innerText = text;
+    
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  document.getElementById('goToNewConten').addEventListener('click', () => {
+    document.getElementById('contents1').style.display = 'none';
+    document.getElementById('contents2').style.display = 'block';
+setInterval(() => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  }, 2000);
+});
+  
+</script>
+    
+</body>
+</html>
