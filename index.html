@@ -13,7 +13,7 @@
    <div id="contents1" >
        <div class="flex items-center justify-center h-screen bg-pink-100">
            <div class="text-center ">
-               <h1 class="text-4xl py-4 font-extrabold animate__animated animate__pulse animate__infinite">
+               <h1 class="text-3xl py-4 font-extrabold animate__animated animate__pulse animate__infinite">
                    Happy BirthDay Chhorda!
                </h1>
                <img src="./chhorda1.png" class="w-47 h-48 mx-auto rounded-sm">
@@ -84,10 +84,17 @@
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
-
+const firework1 = setInterval(() => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  }, 3000);
   document.getElementById('goToNewConten').addEventListener('click', () => {
     document.getElementById('contents1').style.display = 'none';
     document.getElementById('contents2').style.display = 'block';
+    clearInterval(firework1);
 setInterval(() => {
     confetti({
       particleCount: 100,
