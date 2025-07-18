@@ -11,17 +11,29 @@
 </head>
 <body>
    <div id="contents1" >
-       <div class="flex items-center justify-center h-screen bg-pink-100">
+       <div class="flex items-center justify-center  bg-pink-100">
            <div class="text-center ">
-               <h1 class="text-3xl py-4 font-extrabold animate__animated animate__pulse animate__infinite">
-                   Happy BirthDay Chhorda!
+               <h1 class="text-2xl py-4 font-extrabold ">
+                   Hope one Day you will open this website again!
                </h1>
-               <img src="./chhorda1.png" class="w-47 h-48 mx-auto rounded-sm">
-               <div class="text-2xl font-semibold p-4 rounded max-w-md w-full mx-auto">
-       
-                    <p>Wishing you all the best on your special day!</p>
-                    
-               </div>
+               <!-- <img src="./chhorda1.png" class="w-47 h-48 mx-auto rounded-sm"> -->
+                <div class="text-base font-semibold p-4 rounded max-w-md w-full mx-auto">
+        
+                      <p>Here are all ur photos in my phone. <br>
+                        I’m sharing them here for our memories.
+                        </p>
+                      
+                </div>
+                
+              <div id="gallery" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 p-2">
+                <!-- img data -->
+              </div>
+              <div class="text-base font-semibold p-4 rounded max-w-md w-full mx-auto">
+        
+                      <p>That's all it was a short good time you gave me,but I really appreciate it.
+                        </p>
+                      
+                </div>
                <button id="goToNewConten" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded transition">Next</button>
                <div class="flex py-4">
                    <img src="./meow1.jpg" class="w-24 h-24 mx-auto rounded-sm">
@@ -29,6 +41,13 @@
                    <img src="./meow3.jpg" class="w-24 h-24 mx-auto rounded-sm">
                    
                </div>
+               <div class="text-xs p-4 rounded max-w-md w-full mx-auto">
+        
+                      <p>From a person that love you <br>
+                         March/2025 - 18/July/2025
+                        </p>
+                      
+                </div>
            </div>
            
        </div>
@@ -59,8 +78,64 @@
        
    </div>
    <script>
-  const startDate = new Date("2025-05-11T00:00:00");
+  //img section
+    const images = [
+      { src: "img/1.jpg", desc: "u accepted my fri request and view ur story for the first time" },
+      { src: "img/2.jpg", desc: "You seem like the brightest flower among all the flowers." },
+      { src: "img/3.jpg", desc: "Your smile is still beautiful, even when you try to hide it." },
+      { src: "img/4.jpg", desc: "nth just wanna save it :D " },
+      { src: "img/5.jpg", desc: "nth just wanna save it :D " },
+      { src: "img/6.jpg", desc: "nth just wanna save it :D " },
+      { src: "img/7.jpg", desc: "My favorite notification <3 But now I don’t receive it anymore. " },
+      { src: "img/8.jpg", desc: "Found in AeonMall page xD. " },
+      { src: "img/9.jpg", desc: "Found in AeonMall page xD. " },
+      { src: "img/10.jpg", desc: "Found in AeonMall page xD. " },
+      { src: "img/11.jpg", desc: "Found in AeonMall page xD. " },
+      { src: "img/12.jpg", desc: "Woof Woof " },
+      { src: "img/13.jpg", desc: "Love when u send random photo to me. " },
+      { src: "img/26.jpg", desc: "Meow " },
+      { src: "img/14.jpg", desc: "Meow " },
+      { src: "img/15.jpg", desc: "Meow " },
 
+      { src: "img/16.jpg", desc: "Hmmm " },
+      { src: "img/17.jpg", desc: "Woooh mej thort ke jg-_-" },
+      { src: "img/18.jpg", desc: "First time staying out with you and I really tried my best to talk to you xD " },
+      { src: "img/19.jpg", desc: "Woooh mej thort ke jg-_-" },
+      { src: "img/20.jpg", desc: "Kinda sad… who’s the guy that gave to you? -_-" },
+      { src: "img/21.jpg", desc: "ahh fri ke sos xD" },
+      { src: "img/22.jpg", desc: "Happy birthday hahah" },
+      { src: "img/23.jpg", desc: "Happy birthday hahah" },
+      { src: "img/24.jpg", desc: "Pretty But it was for your dating :( " },
+      { src: "img/25.jpg", desc: "Damn that hurt,seeing that couple profile :( . " },
+     
+      
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    images.forEach((item, index) => {
+      const container = document.createElement('div');
+      container.className = "bg-white rounded shadow p-3 text-center";
+
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.alt = `Image ${index + 1}`;
+      img.className = "w-full max-w-xs h-auto mx-auto rounded mb-2";
+
+      const caption = document.createElement('p');
+      caption.textContent = item.desc;
+      caption.className = "text-sm text-gray-700";
+
+      container.appendChild(img);
+      container.appendChild(caption);
+      gallery.appendChild(container);
+    });
+  //img section end
+  
+  
+  
+  const startDate = new Date("2025-05-11T00:00:00");
+    
   function updateCountdown() {
     const now = new Date();
     const diff = now - startDate;
@@ -84,17 +159,11 @@
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
-const firework1 = setInterval(() => {
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-    });
-  }, 3000);
+
   document.getElementById('goToNewConten').addEventListener('click', () => {
     document.getElementById('contents1').style.display = 'none';
     document.getElementById('contents2').style.display = 'block';
-    clearInterval(firework1);
+    
 setInterval(() => {
     confetti({
       particleCount: 100,
